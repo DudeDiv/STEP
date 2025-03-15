@@ -1,0 +1,11 @@
+Q. Write a query to list all food items available. The output should include item_id, name, and rate.
+
+QUERY:
+SELECT 
+    FoodItem.item_id,
+    FoodItem.name,
+    FoodItemSize.rate
+FROM 
+    FoodItem
+INNER JOIN 
+    FoodItemSize ON FoodItem.item_id = FoodItemSize.item_id;
