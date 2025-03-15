@@ -33,19 +33,16 @@ Hint:
 
 #Code:
 
-# Step 1: Define the menu with food items and their prices
 menu = {
     1: {"name": "Burger", "price": 5},
     2: {"name": "Pizza", "price": 8},
     3: {"name": "Coffee", "price": 3}
 }
 
-# Step 2: Display the menu
 print("Menu:")
 for item_number, details in menu.items():
     print(f"{item_number}. {details['name']} - ${details['price']}")
 
-# Step 3: Allow users to select multiple food items and enter quantities
 order = []
 while True:
     try:
@@ -67,7 +64,6 @@ while True:
     except ValueError:
         print("Invalid input. Please enter numbers only.")
 
-# Step 4: Calculate total bill and display summary
 print("\nOrder Summary:")
 total_bill = 0
 for item in order:
