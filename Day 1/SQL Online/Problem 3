@@ -1,0 +1,4 @@
+Q. Write a query to list users who haven't provided an email address. The output should include user_id and name.
+
+QUERY:
+select user_id , name from User where email is null or email = '';
