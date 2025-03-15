@@ -1,0 +1,17 @@
+Problem Statement: "The theater management wants to identify the most active users based on the
+number of bookings they have made. Write a query to count the total bookings per user and display the
+results in descending order. This insight will help in recognizing loyal customers and creating targeted loyalty programs."
+
+QUERY:
+SELECT 
+    User.user_id,
+    User.name,
+    COUNT(Booking.booking_id) AS total_bookings
+FROM 
+    User
+LEFT JOIN 
+    Booking ON User.user_id = Booking.user_id
+GROUP BY 
+    User.user_id, User.name
+ORDER BY 
+    total_bookings DESC;
