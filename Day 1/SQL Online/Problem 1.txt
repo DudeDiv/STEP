@@ -1,0 +1,7 @@
+Q. Write a query to list all movies that are currently showing. The output should include movie_id, title, and rating.
+
+QUERY:
+SELECT m.movie_id, m.title, m.rating
+FROM movie m
+JOIN movie s ON m.movie_id = s.movie_id
+WHERE s.status = 'Now Showing';
