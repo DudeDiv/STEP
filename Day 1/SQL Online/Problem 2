@@ -1,0 +1,11 @@
+Q. Write a query to retrieve all reviews for a given movie_id. The output should include reviewer_name, review_date, and content.
+
+QUERY:
+SELECT 
+    reviewer_name,
+    review_date,
+    content
+FROM 
+    Review
+WHERE 
+    movie_id = 2;
