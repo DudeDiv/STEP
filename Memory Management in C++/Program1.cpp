@@ -55,9 +55,17 @@ public:
       return p;
   }
   int* end(){
-      return p +sz;
+      return p + sz;
   }
+  
   Vector(): sz(0), p(NULL) {}
+  
+  Vector(Vector &obj): sz(obj.sz){
+    p = new int[sz];
+    for(int i=0;i<sz;++i){
+        p[i] = obj.p[i];
+    }
+  }
   
   Vector(int _sz): sz(_sz) {
       p = new int[sz];
@@ -66,7 +74,16 @@ public:
       }
   }
   
-  Vector(int _sz, int fill): sz(_sz){
+  Vector& operator =(Vector &obj){
+      sz = obj.sz;
+      p = new int[sz];
+      for(int i=0;i<sz;++i){
+          p[i] = obj.p[i];
+      }
+      return *this;
+  }
+  
+  Vector(int _sz, int fill=0): sz(_sz){
       p = new int[sz];
       for(int i=0;i<sz;++i){
           p[i] = fill;
@@ -80,12 +97,13 @@ public:
       }
   }
   
+  
+  
   ~Vector(){
-      delete[] x;
+      cout<<"Address of p: "<<p<<endl;
+      delete[] p;
       sz = 0;
-      cout<<"Before cleaning p : "<<p<<endl;
       p = NULL;
-      cout<<"After cleaning p : "<<p<<endl;
   }
 };
 
@@ -101,10 +119,15 @@ int main() {
     Vector v1, //size 0
            v2(10), //size is 10, all values are 0
            v3(10,5), //size is 10, all values are 5
-           v4(10,arr); //store values of the arr
+           v4(10,arr); //size is 10, store values of the arr
+           v5(v4);
+    v1 = v5;
     display(v1.begin(), v1.end());
     display(v2.begin(), v2.end());
     display(v3.begin(), v3.end());
     display(v4.begin(), v4.end());
+    display(v5.begin(), v5.end());
     return 0;
 }
+
+//Check for errors. Understand the code accordingly.
